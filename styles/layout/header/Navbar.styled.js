@@ -2,7 +2,10 @@ import styled, { css } from 'styled-components';
 import { FlexContainer } from '../../common/Container.styled';
 import { ButtonWithImage } from '../../../styles/common/Button.styled';
 
-export const StyledNavbar = styled(FlexContainer)`
+export const StyledNavbar = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   box-shadow: ${({ theme }) =>
     css`
@@ -16,6 +19,11 @@ export const LogoContainer = styled(FlexContainer)`
   margin: 1rem;
   border-radius: 50%;
   box-shadow: ${({ theme }) => theme.boxShadows.navbar};
+
+  @media (max-width: 48em) {
+    width: 4rem;
+    height: 4rem;
+  }
 `;
 
 export const ThemeModeContainer = styled(FlexContainer)`
@@ -24,7 +32,14 @@ export const ThemeModeContainer = styled(FlexContainer)`
 
 export const ThemeModeButton = styled(ButtonWithImage)`
   padding: 1rem;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
   border-radius: 50%;
-  box-shadow: ${({ theme }) => theme.boxShadows.themeModeButton};
+
+  &:hover {
+    box-shadow: ${({ theme }) => theme.boxShadows.themeModeButton};
+  }
+
+  @media (max-width: 48em) {
+    padding: 0.5rem;
+  }
 `;

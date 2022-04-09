@@ -18,9 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <StyledNavbar
-      container={{ direction: 'row', axisX: 'space-between', axisY: 'center' }}
-    >
+    <StyledNavbar>
       <LogoContainer
         container={{ direction: 'row', axisX: 'center', axisY: 'center' }}
       >
