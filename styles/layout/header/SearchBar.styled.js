@@ -17,44 +17,59 @@ export const InputContainer = styled(FlexContainer)`
   box-shadow: ${({ theme }) => theme.boxShadows.searchBar};
   transition: transform 0.2s;
 
+  width: 30rem;
+
   &:active {
     transform: scale(0.95);
+  }
+
+  @media (max-width: 48em) {
+    width: 20rem;
+  }
+
+  @media (max-width: 27em) {
+    width: 15rem;
   }
 `;
 
 export const SearchBarInput = styled(Input)`
-  width: 30rem;
   height: 2.5rem;
+  width: 100%;
   padding: 0 1.5rem;
   font-size: 1.5rem;
   font-weight: 700;
 
   @media (max-width: 48em) {
-    width: 20rem;
     height: 2rem;
   }
 
   @media (max-width: 27em) {
-    width: 15rem;
+    padding: 0 1.2rem;
     height: 1.5rem;
     font-size: 1.2rem;
+  }
+
+  @media (max-width: 20em) {
+    padding: 0 1rem;
+    height: 1rem;
+    font-size: 1rem;
   }
 `;
 
 export const SearchButtonContainer = styled(FlexContainer)`
-  margin: 0 1rem;
+  margin: 1.2rem;
+  width: 4rem;
+  height: 4rem;
 
-  @media (max-width: 27em) {
-    margin: 0 0.5rem;
+  @media (max-width: 24em) {
+    margin: 0.7rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 `;
 
 export const SearchButton = styled(ButtonWithImage)`
-  padding: 1rem;
-  transition: transform 0.2s;
+  padding: 0.5rem;
   border-radius: 50%;
-
-  @media (max-width: 27em) {
-    padding: 0.5rem;
-  }
+  transition: transform 0.2s;
 `;

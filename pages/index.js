@@ -1,3 +1,5 @@
+import BlogsSection from '../components/sections/blog-section/BlogsSection';
+
 export default function Home() {
-  return <div>HomePage</div>;
+  return <BlogsSection />;
 }

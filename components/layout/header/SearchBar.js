@@ -32,8 +32,8 @@ const SearchBar = () => {
           <Image
             src='/svgs/search.svg'
             alt='search icon'
-            width='20px'
-            height='20px'
+            width='20'
+            height='20'
           />
         </SearchButton>
       </SearchButtonContainer>

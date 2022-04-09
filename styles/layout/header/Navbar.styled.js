@@ -6,6 +6,7 @@ export const StyledNavbar = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 2rem;
   width: 100%;
   box-shadow: ${({ theme }) =>
     css`
@@ -25,26 +26,35 @@ export const LogoContainer = styled(FlexContainer)`
     height: 4rem;
     margin: 1rem;
   }
+
+  @media (max-width: 24em) {
+    width: 3rem;
+    height: 3rem;
+    margin: 0.7rem;
+  }
 `;
 
 export const ThemeModeContainer = styled(FlexContainer)`
-  margin: 1.2rem;
+  width: 4rem;
+  height: 4rem;
 
   @media (max-width: 48em) {
-    margin: 1rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  @media (max-width: 20em) {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 `;
 
 export const ThemeModeButton = styled(ButtonWithImage)`
-  padding: 1rem;
+  padding: 0.5rem;
   transition: transform 0.2s, box-shadow 0.2s;
   border-radius: 50%;
 
   &:hover {
     box-shadow: ${({ theme }) => theme.boxShadows.themeModeButton};
-  }
-
-  @media (max-width: 48em) {
-    padding: 0.5rem;
   }
 `;
