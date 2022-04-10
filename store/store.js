@@ -19,3 +19,8 @@ export const useLayoutStore = create(
     )
   )
 );
+
+export const useBlogsStore = create((set, get) => ({
+  blogs: [],
+  setBlogs: data => set(state => ({ blogs: data }))
+}));
