@@ -3,6 +3,7 @@ import { FlexContainer } from '../../common/Container.styled';
 
 export const StyledBlogsContainerItem = styled(FlexContainer)`
   overflow: hidden;
+  position: relative;
   border-radius: 10px;
   width: 70%;
   margin: 2rem 0;
@@ -18,6 +19,17 @@ export const StyledBlogsContainerItem = styled(FlexContainer)`
   @media (max-width: 20em) {
     margin: 0.7rem 0;
   }
+`;
+
+export const LinkContainer = styled.div`
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
 `;
 
 export const ImageContainer = styled(FlexContainer)`

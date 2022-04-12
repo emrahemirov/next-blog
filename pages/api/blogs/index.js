@@ -3,25 +3,29 @@ import Blog from '../../../models/blogModel';
 
 const handler = async (req, res) => {
   if (req.method === 'POST') {
-    let page;
+    let pageIndex;
 
-    if (req.body.page >= 0) {
-      page = req.body.page;
+    if (req.body.page >= 1) {
+      pageIndex = req.body.page - 1;
     } else {
-      page = 0;
+      pageIndex = 0;
     }
 
     await dbConnect();
     const query = {};
     const blogs = await Blog.find(query)
       .sort([['randomDate', -1]])
-      .skip(page * 20)
-      .limit(20);
+      .skip(pageIndex * 10)
+      .limit(10);
+
+    const allBlogsCount = await Blog.countDocuments({});
 
     if (blogs.length > 0) {
-      res.status(201).json({ message: 'success', data: blogs });
+      res
+        .status(201)
+        .json({ message: 'success', data: { blogs, allBlogsCount } });
     } else {
-      res.status(201).json({ message: 'fail', data: 'not-found' });
+      res.status(201).json({ message: 'fail' });
     }
   }
 };

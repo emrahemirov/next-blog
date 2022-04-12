@@ -1,20 +1,28 @@
 import Image from 'next/Image';
+import { useRouter } from 'next/router';
 import {
   StyledBlogsContainerItem,
+  LinkContainer,
   ImageContainer,
   ContentContainer,
   ContentHeader,
   ContentDate,
   ContentSummary
-} from '../../../styles/sections/blog-section/BlogsContainerItem.styled';
+} from '../../../styles/sections/blogs-section/BlogsContainerItem.styled';
 
-const BlogsContainerItem = ({ blog }) => {
+const BlogsContainerItem = ({ blog, keyAsProp }) => {
+  const router = useRouter();
   blog.randomDate = new Date(blog.randomDate);
+
+  const handleBlogClick = params => {
+    router.push(`/blog/${keyAsProp}`);
+  };
 
   return (
     <StyledBlogsContainerItem
       container={{ direction: 'row', axisX: 'center', axisY: 'center' }}
     >
+      <LinkContainer onClick={handleBlogClick} />
       <ImageContainer
         container={{ direction: 'row', axisX: 'center', axisY: 'center' }}
       >

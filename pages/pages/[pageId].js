@@ -3,11 +3,11 @@ import BlogsSection from '../../components/sections/blogs-section/BlogsSection';
 import { useBlogsStore } from '../../store/store';
 
 const Pagination = props => {
-  const storeSetBlogs = useBlogsStore(state => state.setBlogs);
+  const setBlogs = useBlogsStore(state => state.setBlogs);
+  const setAllBlogsCount = useBlogsStore(state => state.setAllBlogsCount);
 
-  useEffect(() => {
-    storeSetBlogs(props.data);
-  });
+  setBlogs(props.data);
+  setAllBlogsCount(props.allBlogsCount);
 
   return <BlogsSection />;
 };
@@ -34,7 +34,7 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { data }
+    props: { data: data.blogs, allBlogsCount: data.allBlogsCount }
   };
 }
 

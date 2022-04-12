@@ -21,6 +21,10 @@ export const useLayoutStore = create(
 );
 
 export const useBlogsStore = create((set, get) => ({
+  blog: {},
   blogs: [],
-  setBlogs: data => set(state => ({ blogs: data }))
+  allBlogsCount: 0,
+  setBlogs: data => set(state => ({ blogs: data })),
+  setBlog: data => set(state => ({ blog: data })),
+  setAllBlogsCount: data => set(state => ({ allBlogsCount: data }))
 }));

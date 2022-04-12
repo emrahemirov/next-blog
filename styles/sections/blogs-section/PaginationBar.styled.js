@@ -4,9 +4,8 @@ import { Button } from '../../common/Button.styled';
 
 export const StyledPaginationBar = styled(FlexContainer)`
   width: 70%;
-  height: 50px;
   margin: 2rem 0;
-
+  flex-wrap: wrap;
   @media (max-width: 48em) {
     width: 80%;
   }
@@ -15,6 +14,11 @@ export const StyledPaginationBar = styled(FlexContainer)`
 export const PageNumberContainer = styled(FlexContainer)`
   width: 4rem;
   height: 4rem;
+
+  @media (max-width: 27em) {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 `;
 
 export const PageNumber = styled(Button)`

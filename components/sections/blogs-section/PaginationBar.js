@@ -1,25 +1,40 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
+import { useBlogsStore } from '../../../store/store';
 import {
   StyledPaginationBar,
   PageNumberContainer,
   PageNumber
-} from '../../../styles/sections/blog-section/PaginationBar.styled';
+} from '../../../styles/sections/blogs-section/PaginationBar.styled';
 
 const PaginationBar = () => {
   const router = useRouter();
+  const allBlogsCount = useBlogsStore(state => state.allBlogsCount);
 
-  const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  const getPageNumbers = () => {
+    let pageNumbers = [];
+    for (let i = 0; i < allBlogsCount / 10; i++) {
+      pageNumbers.push(i + 1);
+    }
+    return pageNumbers;
+  };
 
   const handlePageNumberClick = e => {
-    router.replace(`/pages/${e.target.outerText - 1}`);
+    router.push(`${e.target.outerText}`);
+  };
+
+  const pageNumberContents = () => {
+    let contentString;
+
+    return contentString;
   };
 
   return (
     <StyledPaginationBar
       container={{ direction: 'row', axisX: 'center', axisY: 'center' }}
     >
-      {pageNumbers.map(pageNumber => {
+      {pageNumberContents()}
+      {getPageNumbers().map(pageNumber => {
         return (
           <PageNumberContainer
             container={{ direction: 'row', axisX: 'center', axisY: 'center' }}

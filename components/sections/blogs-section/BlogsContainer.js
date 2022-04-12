@@ -1,16 +1,18 @@
 import BlogsContainerItem from './BlogsContainerItem';
-import { StyledBlogsContainer } from '../../../styles/sections/blog-section/BlogsContainer.styled';
+import { StyledBlogsContainer } from '../../../styles/sections/blogs-section/BlogsContainer.styled';
 import { useBlogsStore } from '../../../store/store';
 
 const BlogsContainer = () => {
-  const storeBlogs = useBlogsStore(state => state.blogs);
+  const blogs = useBlogsStore(state => state.blogs);
 
   return (
     <StyledBlogsContainer
       container={{ direction: 'row', axisX: 'center', axisY: 'center' }}
     >
-      {storeBlogs.map(storeBlog => {
-        return <BlogsContainerItem key={storeBlog._id} blog={storeBlog} />;
+      {blogs.map(blog => {
+        return (
+          <BlogsContainerItem key={blog._id} blog={blog} keyAsProp={blog._id} />
+        );
       })}
     </StyledBlogsContainer>
   );
